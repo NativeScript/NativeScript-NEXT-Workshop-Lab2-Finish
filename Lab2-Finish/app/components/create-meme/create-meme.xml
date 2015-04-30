@@ -1,6 +1,6 @@
 <Page
 	xmlns="http://www.nativescript.org/tns.xsd">
 
-		<Label text="Bacon ipsum dolor amet meatloaf tenderloin turducken swine ground round filet mignon tri-tip shankle bacon shoulder ribeye rump. Short loin ham hock salami capicola turducken ball tip pork belly prosciutto tri-tip beef venison strip steak pancetta turkey jowl. Strip steak tri-tip cow drumstick pork loin venison beef ribs boudin sirloin spare ribs ham meatball. Cupim shoulder tenderloin pork beef ribs beef tongue hamburger. Pancetta turducken rump ball tip biltong fatback ham hock." />
+		<Label textWrap="true" text="Bacon ipsum dolor amet meatloaf tenderloin turducken swine ground round filet mignon tri-tip shankle bacon shoulder ribeye rump. Short loin ham hock salami capicola turducken ball tip pork belly prosciutto tri-tip beef venison strip steak pancetta turkey jowl. Strip steak tri-tip cow drumstick pork loin venison beef ribs boudin sirloin spare ribs ham meatball. Cupim shoulder tenderloin pork beef ribs beef tongue hamburger. Pancetta turducken rump ball tip biltong fatback ham hock." />
 
 </Page>
