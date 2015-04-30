@@ -1,0 +1,28 @@
+{
+  "ProjectName": "Lab2-Finish",
+  "ProjectGuid": "95617063-a639-47db-8aa1-90ca4cdf69d4",
+  "projectVersion": 1,
+  "AppIdentifier": "com.telerik.Lab2Finish",
+  "DisplayName": "Lab2-Finish",
+  "Author": "",
+  "Description": "",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{F0A65104-D4F4-4012-B799-F612D75820F6}",
+  "AndroidPermissions": [
+    "android.permission.INTERNET"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "false",
+  "iOSStatusBarStyle": "Default",
+  "FrameworkVersion": "0.10.0",
+  "Framework": "NativeScript"
+}
