@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 */bin
 */obj
 *.user-settings.xml
+=======
+platforms/
+lib/
+>>>>>>> branch 'master' of https://github.com/NativeScript/NativeScript-NEXT-Workshop-Lab2-Finish.git
