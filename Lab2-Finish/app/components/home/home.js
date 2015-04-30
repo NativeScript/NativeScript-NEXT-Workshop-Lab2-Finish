@@ -60,7 +60,10 @@ function populateTemplates() {
 		var image = new imageModule.Image();
 		image.imageSource = imageSource;
 
+		alert("in selecteed!!");
+
 		image.observe(gesturesModule.GestureTypes.tap, function () {
+			alert("in tap callback");
 			templateSelected(imageSource);
 		});
 
@@ -165,6 +168,7 @@ function clearOldMemes(container) {
 }
 
 function templateSelected(selectedImageSource) {
+	alert("in template selecteed!!");
 	if ( selectedImageSource ) {
 		alert("I was here!!");
 		navigation.goCreateMeme(selectedImageSource);
