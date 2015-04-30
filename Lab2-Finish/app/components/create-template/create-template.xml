@@ -1,0 +1,15 @@
+<Page 
+	xmlns="http://www.nativescript.org/tns.xsd"
+	navigatedTo="navigatedTo"
+	loaded="loaded">
+
+	<StackLayout>
+		<Image imageSource="{{ imageSource }}" />
+
+		<ActivityIndicator busy="{{ isBusy }}" width="50" height="50"/>
+
+		<Button text="Import Picture" tap="saveLocally" />
+		<Button text="Submit For Approval" tap="submitToEverlive" />
+	</StackLayout>
+	
+</Page>
