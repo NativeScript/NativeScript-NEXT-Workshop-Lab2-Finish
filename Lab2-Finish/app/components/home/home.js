@@ -80,7 +80,7 @@ function populateMyMemes() {
 		image.imageSource = imageSource;
 
 		//What do to...  share delete?
-		image.observe(gesturesModule.GestureTypes.tap, function () {
+		image.observe(gesturesModule.GestureTypes.Tap, function () {
 			myMemesActionSheet(imageSource, fileName);
 		});
 
@@ -165,9 +165,7 @@ function clearOldMemes(container) {
 }
 
 function templateSelected(selectedImageSource) {
-	alert("in template selecteed!!");
 	if ( selectedImageSource ) {
-		alert("I was here!!");
 		navigation.goCreateMeme(selectedImageSource);
 	}
 }
