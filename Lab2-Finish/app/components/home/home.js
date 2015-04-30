@@ -166,6 +166,7 @@ function clearOldMemes(container) {
 
 function templateSelected(selectedImageSource) {
 	if ( selectedImageSource ) {
+		alert("I was here!!");
 		navigation.goCreateMeme(selectedImageSource);
 	}
 }
