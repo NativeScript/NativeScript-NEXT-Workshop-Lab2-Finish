@@ -1,12 +1,10 @@
 var imageSourceModule = require("image-source");
 var httpModule = require("http");
 var enumsModule = require("ui/enums");
-var analyticsMonitor = require("../analytics");
 
 module.exports = {
-	
+
 	addTemplate: function (fileName, imageSource) {
-		//This should also save locally....
 		return _addTemplate(fileName, imageSource );
 	},
 	getTemplateIndex: function() {
@@ -30,18 +28,17 @@ function _addTemplate (fileName, imageSource) {
 
 			//ERROR INTRODUCED ON PURPOSE.....
 			var result = JSON.parse(uploadResponse.content).Result;
-			
+
 			console.log("***** RESULT FROM EVERLIVE after:", result.Id);
 			_addTemplateToContentType(fileName, result.Id, result.Uri);
 		}).catch(function(error){
-			analyticsMonitor.trackException(error, "Everlive.UploadFile");
 			console.log("***** Add Tempalte ERROR", error);
-		}); 
+		});
 }
 
 function _uploadFile (fileName, imageSource) {
 	var postUrl = global.everliveBaseAddress + "/Files";
-	
+
 	var postBody = {
 		"Filename": fileName,
 		"ContentType": "image/png",
