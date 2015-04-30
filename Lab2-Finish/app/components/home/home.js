@@ -125,7 +125,6 @@ function deleteMeme(imageFileName) {
 			populateMyMemes();
 
 		}).catch(function (error) {
-			analyticsMonitor.trackException(error, "Delete Memes Failed");
 			console.log("***** ERROR:", error);
 		});
 }
@@ -148,15 +147,6 @@ function deleteAllMemes() {
 }
 
 function clearOldMemes(container) {
-
-	/*
-	//you could loop through like this but the visual tree will have to reindex the items and shift things
-	while (container.getChildrenCount() > 0) {
-		container.removeChild(container.getChildAt(0));
-	}
-	*/
-
-	//Or just work backwards picking off the back
 	console.log("***** Clearing X children:", container.getChildrenCount());
 
 	for (var i = container.getChildrenCount() - 1; i >= 0; i-- ) {
@@ -176,7 +166,6 @@ function clearOldMemes(container) {
 
 function templateSelected(selectedImageSource) {
 	if ( selectedImageSource ) {
-		analyticsMonitor.trackFeature("Home.TemplateSelected");
 		navigation.goCreateMeme(selectedImageSource);
 	}
 }
