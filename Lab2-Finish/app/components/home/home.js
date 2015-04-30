@@ -60,10 +60,7 @@ function populateTemplates() {
 		var image = new imageModule.Image();
 		image.imageSource = imageSource;
 
-		alert("in selecteed!!");
-
-		image.observe(gesturesModule.GestureTypes.tap, function () {
-			alert("in tap callback");
+		image.observe(gesturesModule.GestureTypes.Tap, function () {
 			templateSelected(imageSource);
 		});
 
