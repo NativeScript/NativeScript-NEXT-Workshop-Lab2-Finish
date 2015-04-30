@@ -9,14 +9,13 @@ var navigation = require( "../../shared/navigation");
 var templates = require( "../../shared/templates/templates");
 var localStorage = require( "../../shared/local-storage/local-storage");
 var socialShare = require("../social-share/social-share");
-var analyticsMonitor = require("../../shared/analytics");
 
 var _page;
 
 exports.load = function(args) {
 	console.log("Home loaded Event Fired");
 	_page = args.object;
-	
+
 	if (applicationModule.ios) {
 		_page.ios.title = "JustMeme";
 		var controller = frameModule.topmost().ios.controller;
@@ -28,7 +27,7 @@ exports.load = function(args) {
 		navBar.barTintColor = UIColor.colorWithRedGreenBlueAlpha(.35, .90, .0, 1.0);
 		navBar.barStyle = 0;
 		navBar.tintColor = UIColor.blackColor();
-		
+
 		navBar.titleTextAttributes =
 			new NSDictionary(
 				[UIColor.blackColor()],
@@ -49,7 +48,6 @@ exports.navigatedTo = function(args){
 };
 
 exports.createNewTemplate = function() {
-	analyticsMonitor.trackFeature("Home.Template.CreateNew");
 	navigation.goCreateTemplate();
 };
 
@@ -57,15 +55,15 @@ function populateTemplates() {
 	//Get our parrent element such that we can add our items to it dynamically
 	var container = _page.getViewById("templateContainer");
 	clearOldMemes(container);
-	
+
 	templates.getTemplates(function(imageSource){
 		var image = new imageModule.Image();
 		image.imageSource = imageSource;
-		
-		image.observe(gesturesModule.GestureTypes.tap, function () { 
-			templateSelected(imageSource); 
+
+		image.observe(gesturesModule.GestureTypes.tap, function () {
+			templateSelected(imageSource);
 		});
-				
+
 		//add to the element.
 		container.addChild(image);
 	});
@@ -77,15 +75,15 @@ function populateMyMemes() {
 	clearOldMemes(container);
 
 	templates.getMyMemes(function(imageSource, fileName){
-		//Create a new image element 
+		//Create a new image element
 		var image = new imageModule.Image();
 		image.imageSource = imageSource;
 
 		//What do to...  share delete?
 		image.observe(gesturesModule.GestureTypes.tap, function () {
-			myMemesActionSheet(imageSource, fileName); 
+			myMemesActionSheet(imageSource, fileName);
 		});
-		
+
 		//add to the element.
 		container.addChild(image);
 	});
@@ -98,19 +96,16 @@ function myMemesActionSheet (imageSource, imageFileName) {
 		cancelButtonText: "Cancel",
 		actions: ["Delete", "Delete All", "Share"]
 	};
-	
+
 	dialogsModule.action(options).then(function (result) {
 		switch (result) {
 			case "Delete" :
-				analyticsMonitor.trackFeature("Home.ActionSheet.Delete");
 				deleteMeme(imageFileName);
 				break;
-			case "Share" : 
-				analyticsMonitor.trackFeature("Home.ActionSheet.ShareMeme");
+			case "Share" :
 				shareMeme(imageSource);
 				break;
-			case "Delete All" : 
-				analyticsMonitor.trackFeature("Home.ActionSheet.DeleteAllMemes");
+			case "Delete All" :
 				deleteAllMemes();
 				break;
 		}
@@ -146,7 +141,6 @@ function deleteAllMemes() {
 					//Repopulate the screen
 					populateMyMemes();
 				}).catch(function (error) {
-					analyticsMonitor.trackException(error, "Delete All Memes Failed");
 					console.log("***** ERROR:", error);
 				});
 			}
@@ -164,13 +158,13 @@ function clearOldMemes(container) {
 
 	//Or just work backwards picking off the back
 	console.log("***** Clearing X children:", container.getChildrenCount());
-	
+
 	for (var i = container.getChildrenCount() - 1; i >= 0; i-- ) {
 		var childItem = container.getChildAt(i);
-		
+
 		//Removing the child will call its onUnloaded method and all gesture observers will be cleared.
 		container.removeChild(childItem);
-		
+
 		// Prevent possible memory leaks
 		childItem.imageSource.setNativeSource(null);
 		childItem.imageSource = null;
