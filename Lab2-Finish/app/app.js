@@ -3,27 +3,6 @@ var application = require("application");
 application.mainModule = "./components/splashscreen/splashscreen";
 application.cssFile = "./app.css";
 
-
-application.onLaunch = function (context) {
-	console.log("***** application.onLaunch *****");
-};
-
-application.onResume = function (context) {
-	console.log("***** application.onResume *****");
-};
-
-application.onSuspend = function () {
-	console.log("***** application.onSuspend *****");
-};
-
-application.onExit = function () {
-	console.log("***** application.onExit *****");
-};
-
-application.onUncaughtError = function (error) {
-	console.log("***** application onUncaughtError *****", error);
-};
-
 global.baseViewDirectory = "./components/";
 global.recentMemeFolderName = "myMemes";
 
