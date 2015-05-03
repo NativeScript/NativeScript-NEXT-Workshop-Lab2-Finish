@@ -3,9 +3,7 @@ var imageModule = require("ui/image");
 var gesturesModule = require("ui/gestures");
 var frameModule = require("ui/frame");
 var utils = require("utils/utils");
-
 var templates = require( "../../shared/templates/templates");
-var localStorage = require( "../../shared/local-storage/local-storage");
 
 var _page;
 
@@ -51,8 +49,6 @@ function populateMyMemes() {
 }
 
 function clearOldMemes(container) {
-	console.log("***** Clearing X children:", container.getChildrenCount());
-
 	for (var i = container.getChildrenCount() - 1; i >= 0; i-- ) {
 		var childItem = container.getChildAt(i);
 
@@ -67,7 +63,11 @@ function clearOldMemes(container) {
 }
 
 function templateSelected(selectedImageSource) {
-	if ( selectedImageSource ) {
-		navigation.goCreateMeme(selectedImageSource);
-	}
+		alert('Navigate Me!')
+		/*
+		frameModule.topmost().navigate({
+					moduleName: "./components/home/home",
+					animated: true
+			});
+			*/
 }
