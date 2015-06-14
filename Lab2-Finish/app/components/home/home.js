@@ -24,7 +24,7 @@ function populateTemplates() {
 		var image = new imageModule.Image();
 		image.imageSource = imageSource;
 
-		image.observe(gesturesModule.GestureTypes.Tap, function () {
+		image.observe(gesturesModule.GestureTypes.tap, function () {
 			templateSelected(imageSource);
 		});
 
@@ -40,8 +40,8 @@ function populateMyMemes() {
 		var image = new imageModule.Image();
 		image.imageSource = imageSource;
 
-		image.observe(gesturesModule.GestureTypes.Tap, function () {
-			myMemesActionSheet(imageSource, fileName);
+		image.observe(gesturesModule.GestureTypes.tap, function () {
+			alert("Meme selected!");
 		});
 
 		container.addChild(image);
